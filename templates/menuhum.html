@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block titulo %}
-    Productos
+    Menu
 {% endblock %}
 {% block form %}
     <form class="form-inline my-2 my-lg-0" action="/MenuHum/search_product" method="GET">
@@ -15,7 +15,7 @@
     {% for MenuHuman in prodhum %}
 
     <div class="card" style="width: 18rem;">
-        <!--<img src="images/pie.jpg" class="card-img-top" alt="...">-->
+       <img src="/media/{{MenuHuman.imagen}}" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{MenuHuman.producto}}</h5>
             <p class="card-text">{{MenuHuman.detalle}}</p>

@@ -2,7 +2,7 @@
 
 
 {% block titulo %}
-    Menu para Humanos
+    Nuevo producto
 {% endblock %}
 {% block form %}
     <form class="form-inline my-2 my-lg-0" action="/MenuHum/search_product" method="GET">
@@ -25,11 +25,12 @@
 {% elif new_product %}
 
     <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+        <!--<img class="card-img-top" src="/media/{{MenuHuman.imagen}}" alt="Card image cap">-->
         <div class="card-body">
             <h5 class="card-title">{{new_product.nombre}}</h5>
             <p class="card-text">{{new_product.detalle}}</p>
             <p class="card-text">{{new_product.precio}}</p>
+            <p class="card-text">{{new_product.imagen}}</p>
             <p class="card-text">{{new_product.active}}</p>
         </div>
     </div>

@@ -14,7 +14,7 @@ def MenuHuman (request):
 def create_productH_view(request):
     if request.method == 'GET':
         form = ProductH_form()
-        context = {'form':form}
+        context ={'form':form}
         return render(request, 'create_human.html', context=context)
     else:
         form = ProductH_form(request.POST)
@@ -23,11 +23,12 @@ def create_productH_view(request):
                 producto = form.cleaned_data['producto'],
                 precio = form.cleaned_data['precio'],
                 detalle = form.cleaned_data['detalle'],
-                active = form.cleaned_data['active'],
+                imagen = form.cleaned_data(request.POST, request.FILES),
+                active = form.cleaned_data['active']
             )
-            context ={'new_product':new_product}
-        return render(request, 'create_human.html', context=context)
-
+            #context ={'new_product':new_product}
+        #return render(request, 'create_human.html', context=context)
+        return render (request, 'create_human.html')
 def search_product_view(request):
     print(request.GET)
     #product = Menu_Hum.objects.get()
