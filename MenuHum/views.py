@@ -23,12 +23,12 @@ def create_productH_view(request):
                 producto = form.cleaned_data['producto'],
                 precio = form.cleaned_data['precio'],
                 detalle = form.cleaned_data['detalle'],
-                imagen = form.cleaned_data(request.POST, request.FILES),
+                #imagen = form.cleaned_data(request.POST, request.FILES),
                 active = form.cleaned_data['active']
             )
-            #context ={'new_product':new_product}
-        #return render(request, 'create_human.html', context=context)
-        return render (request, 'create_human.html')
+            context ={'new_product':new_product}
+        return render(request, 'create_human.html', context=context)
+        #return render (request, 'create_human.html', {'new_product':new_product})
 def search_product_view(request):
     print(request.GET)
     #product = Menu_Hum.objects.get()
