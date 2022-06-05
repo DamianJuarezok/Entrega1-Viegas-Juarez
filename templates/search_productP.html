@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block titulo %}
-Manu para Mascotas
+    Productos
 {% endblock %}
 {% block form %}
     <form class="form-inline my-2 my-lg-0" action="/MenuPet/search_product" method="GET">
-      <input class="form-control mr-sm-2" type="text" placeholder="Menu para usted" name= 'search' aria-label="Search">
+      <input class="form-control mr-sm-2" type="text" placeholder="Menu para ellos" name= 'search' aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
     </form>
  {% endblock %}
 {% block contenido %}
 <h2>El menu para ellos:</h2>
 <div class="d-flex" style="margin-top:5rem; margin-left:7rem">
-    {% for MenuMasc in prodpet %}
+    {% for MenuMasc in products %}
 
     <div class="card" style="width: 18rem;">
         <!--<img src="images/pie.jpg" class="card-img-top" alt="...">-->
@@ -25,8 +25,6 @@ Manu para Mascotas
     </div>
 
     {% endfor %}
-
-    
 </div>
 
 {% endblock %}

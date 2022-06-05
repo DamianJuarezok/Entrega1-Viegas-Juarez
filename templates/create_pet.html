@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block titulo %}
+    Menu para ellos
+{% endblock %}
+{% block form %}
+    <form class="form-inline my-2 my-lg-0" action="/MenuPet/search_product" method="GET">
+      <input class="form-control mr-sm-2" type="text" placeholder="Menu para ellos" name= 'search' aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
+ {% endblock %}
+{% block contenido %} 
+
+{% if form %}
+    <h2>Agregue un nuevo producto para ellos:</h2>
+
+    <form action="" method="POST" >
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+        <input type="submit", value="Enviar!">
+    </form>
+{% elif new_product %}
+
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{new_product.nombre}}</h5>
+            <p class="card-text">{{new_product.detalle}}</p>
+            <p class="card-text">{{new_product.precio}}</p>
+            <p class="card-text">{{new_product.active}}</p>
+        </div>
+    </div>
+
+{% endif %}
+
+{% endblock %}
