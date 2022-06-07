@@ -1,8 +1,8 @@
 from django.contrib import admin
-from ServiciosPet.models import Servicios_Pet, Dueño, Mascota
+from ServiciosPet.models import Servicio
 
 # Register your models here.
 
-admin.site.register (Servicios_Pet)
-admin.site.register (Dueño)
-admin.site.register (Mascota)
+@admin.register(Servicio)
+class ProductsAdmin(admin.ModelAdmin):
+    list_display = ['nombre_apellido', 'telefono', 'email', 'nombre_mascota', 'raza','edad','is_active']

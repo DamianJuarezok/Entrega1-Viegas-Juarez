@@ -4,16 +4,28 @@
 {% block titulo %}
     Nuevo producto
 {% endblock %}
+
 {% block form %}
     <form class="form-inline my-2 my-lg-0" action="/MenuHum/search_product" method="GET">
       <input class="form-control mr-sm-2" type="text" placeholder="Menu para usted" name= 'search' aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
     </form>
  {% endblock %}
+ 
 {% block contenido %} 
 
 {% if form %}
-    <h2>Agregue un nuevo producto:</h2>
+
+<h2>Complete los campos del nuevo producto</h2>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+                {{form.as_table}}
+            </table>
+            <input type="submit" , value="Enviar">
+        </form>
+    
+    <!-- <h2>Agregue un nuevo producto:</h2>
 
     <form action="" method="POST" >
         {% csrf_token %}
@@ -24,16 +36,15 @@
     </form>
 {% elif new_product %}
 
-    <div class="card" style="width: 18rem;">
-        <!--<img class="card-img-top" src="/media/{{MenuHuman.imagen}}" alt="Card image cap">-->
-        <div class="card-body">
-            <h5 class="card-title">{{new_product.nombre}}</h5>
-            <p class="card-text">{{new_product.detalle}}</p>
-            <p class="card-text">{{new_product.precio}}</p>
-            <!--<p class="card-text">{{new_product.imagen}}</p>-->
-            <p class="card-text">{{new_product.active}}</p>
-        </div>
-    </div>
+    <h2 style="margin-left:30rem">Complete los campos del nuevo producto</h2>
+        <form action="" method="POST" style="margin-left:40rem;margin-top:7rem">
+            {% csrf_token %}
+            <table>
+                {{form.as_table}}
+            </table>
+            <input type="submit" , value="Enviar">
+        </form>
+    -->
 
 {% endif %}
 

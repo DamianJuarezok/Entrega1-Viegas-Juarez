@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from PetCafe.settings import MEDIA_ROOT, MEDIA_URL
-from PetCafe.views import index
+from PetCafe.views import index, menus
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -28,6 +28,7 @@ urlpatterns = [
     path('MenuPet/',include ('MenuPet.urls') ),
     path('ServPet/',include ('ServiciosPet.urls') ),
     path('index/', index, name = 'index'),
+    path('menus/', menus, name = 'menus'),
     
 ]
 

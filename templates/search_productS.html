@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Resultado de busqueda
+{% endblock %}
+{% block form %}
+    <form class="form-inline my-2 my-lg-0" action="/ServPet/search_product" method="GET">
+      <input class="form-control mr-sm-2" type="text" placeholder="Servicios solicitados" name= 'search' aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    </form>
+ {% endblock %}
+{% block contenido %}
+<h2>Servicios solicitados:</h2>
+<div class="d-flex" style="margin-top:5rem; margin-left:7rem">
+    {% for servicio in products %}
+
+    <div class="card" style="width: 18rem;">
+        <!--<img src="images/pie.jpg" class="card-img-top" alt="...">-->
+        <div class="card-body">
+            <h5 class="card-title">{{servicio.nombre_apellido}}</h5>
+                <p class="card-text">{{servicio.telefono}}</p>
+                <p class="card-text">{{servicio.email}}</p>
+                <p class="card-text">{{servicio.nombre_mascota}}</p>
+                <p class="card-text">{{servicio.raza}}</p>
+                <p class="card-text">{{servicio.edad}}</p>
+            <a href="#" class="btn btn-primary">Comprar!</a>
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+<h2><div style="color:red">
+    {{errors}}
+    </div></h2>
+{% endblock %}

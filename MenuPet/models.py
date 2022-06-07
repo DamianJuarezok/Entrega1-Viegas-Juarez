@@ -7,4 +7,4 @@ class Menu_Pet(models.Model):
     producto = models.CharField(max_length=30)
     precio = models.FloatField()
     detalle = models.CharField(max_length=100)
-    active = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=True)
