@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from PetCafe.settings import MEDIA_ROOT, MEDIA_URL
-from PetCafe.views import index, menus
+from PetCafe.views import index, menus, login_view, logout_view, register_view
 from django.conf import settings
 from django.conf.urls.static import static
+
 
 
 urlpatterns = [
@@ -29,7 +30,9 @@ urlpatterns = [
     path('ServPet/',include ('ServiciosPet.urls') ),
     path('index/', index, name = 'index'),
     path('menus/', menus, name = 'menus'),
-    
+    path('login/', login_view, name = 'login'),
+    path('logout/', logout_view, name = 'logout'),
+    path('register/', register_view, name = 'register'),   
 ]
 
 if settings.DEBUG:
