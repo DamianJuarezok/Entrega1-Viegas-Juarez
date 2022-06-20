@@ -1,87 +1,126 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-   {% block titulo %}
-   {% endblock %}      
-    </title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+<title>{% block titulo %}
+  {% endblock %}  </title>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="{% static 'website/css/style.css ' %}">
+<!--[if IE 8]><link rel="stylesheet" type="text/css" href="css/ie8.css"><![endif]-->
+<!--[if IE 7]><link rel="stylesheet" type="text/css" href="css/ie7.css"><![endif]-->
+<!--[if IE 6]><link rel="stylesheet" type="text/css" href="css/ie6.css"><![endif]-->
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light "style="background-color: #41210a;">
-      
-      <a class="navbar-brand" href="#">
-      <img src="https://i.ibb.co/4ZtspXf/logo.jpg" width="70" height="70" alt=""opacity=10>
-      </a>
-      
-        <a class="btn btn-link" style="color: #DAF7A6 ;"href="/index/">Inicio</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <!--<li class="nav-item active">
-              <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
-            </li>-->
-            <li class="nav-item">
-              <a class="btn btn-link" style="color: #DAF7A6" href="/ServPet/">Solicitud de servicio</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" style="color: #DAF7A6" href="/menus/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-                Menus
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/MenuPet/">Para Mascotas</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/MenuHum/">Para Humanos</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="color: #DAF7A6" href="/MenuHum/create_human/">Nuevo producto</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="color: #DAF7A6" href="/MenuPet/create_pet/">Nuevo producto de Mascotas</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="color: #DAF7A6" href="/ServPet/list_serv/">Servicios solicitados</a>
-            </li>
-            {% if request.user.is_authenticated %}
-            <li class="nav-item" style="margin-right: 10rem">
-                <h5>{{request.user.username}}</h5>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" style="color: #DAF7A6" href="/logout/">Logout</a>
-            </li>
-            {% else %}
-            <li class="nav-item">
-                <a class="nav-link" style="color: #DAF7A6" href="/login/">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" style="color: #DAF7A6" href="/register/">Registrate</a>
-            </li>
-            {% endif %}
-
-
-            <!--<li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li>>>> -->
-          </ul>
-          {% block form %}
-          <!--<form class="form-inline my-2 my-lg-0" action="/MenuHum/search_product" method="GET">
-            <input class="form-control mr-sm-2" type="text" placeholder="Buscar" name= 'search' aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar Producto</button>
-          </form>-->
-          {% endblock %}
+<div id="header">
+  <div>
+    <div>
+      <div id="logo"> <a href="#"><img src="{% static 'website/images/logo.png' %}" alt=""></a> </div>
+      <div>
+        <div> {% if request.user.is_authenticated %}
+          <h5>{{request.user.username}}</h5>
+          <a href="/logout/">Logout</a> 
+          {% else %}
+          <a href="/register/">Registrarse</a> <a href="/login/" class="last">Login</a>
+          {% endif %}
         </div>
-      </nav>
+        {% block form %}
+        <!--<form action="#">
+          <input type="text" id="search" maxlength="30">
+          <input type="submit" value="" id="searchbtn">
+        </form>-->
+        {% endblock %}
+      </div>
+    </div>
+    <ul>
+      <li class="current"><a href="/index/">Home</a></li>
+      <li><a href="about.html">Sobre nosotros</a></li>
+      <li><a href="/MenuHum/">Menu</a></li>
+      <li><a href="/MenuPet/">Menu Pet</a></li>
+      <li><a href="/ServPet/">Servicios</a></li>
+      <li><a href="contact.html">Contacto</a></li>
+    </ul>
     
-      {% block contenido %}
-      {% endblock %}      
+      
+       
+  </div> 
+</div>
+{% block contenido %}
+<div id="content">
+  <div class="home">
+    <div class="aside">
+      <h1>Bienvenidos a Pet Cafe</h1>
+      <p>Pastry is the name given to various kinds of baked goods made from ingredients such as flour, butter, shortening, baking powder or eggs. Small cakes, tarts and other sweet baked goods are called &#34;pastries&#34;.</p>
+      <p>Pastry may also refer to the dough from which such baked goods are made. Pastry dough is rolled out thinly and used as a base for baked goods. Common pastry dishes include pies, tarts and quiches.
+      <p>Pastry is distinguished from bread by having a higher fat content, which contributes to a flaky or crumbly texture. A good pastry is light and airy and fatty, but firm enough to support the weight of the filling. When making a shortcrust pastry, care must be taken to blend the fat and flour thoroughly before adding. <a href="#" class="readmore">read more</a></p>
+    </div>
+    <div class="section">
+      <div>
+        <h2>The food story</h2>
+        <p>Lorem ipsum dolor sit amet, consectetuer adispiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exercitation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+      </div>
+      <ul>
+        <li> <a href="#"><img src="{% static 'website/images/burgercake.jpg' %}" alt=""></a> </li>
+        <li> <a href="#"><img src="{% static 'website/images/cupcake.jpg' %}" alt=""></a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}  
+<div id="footer">
+  <div class="home">
+    <div>
+      <div class="aside">
+        <div class="signup">
+          <div> <b> <span>Solicita</span> tu servicio</b> <a href="/ServPet/">Escribinos</a>
+            <p>Te esteremos contactando</p>
+          </div>
+        </div>
+        <div class="connect"> <span>Seguinos</span>
+          <ul>
+            <li><a href="#" class="facebook">Facebook</a></li>
+            <li><a href="#" class="twitter">Instagram</a></li>
+            <li><a href="#" class="facebook">Facebook</a></li>
+            <li><a href="#" class="twitter">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="section">
+        <div>
+          <div>
+            <h3><a href="#">El preferido de ellos</a></h3>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exertation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="featured">
+    <ul>
+      <!--<li class="first"> <a href="#"><img src="{% static 'website/images/fruit-cake.jpg' %}" alt=""></a>
+        <h2><a href="#">Tips on how to preserve</a></h2>
+        <p>Lorem ipsum dolor sit amet, consectetuer adispiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. <a href="#" class="readmore">read more</a></p>
+      </li>
+      <li> <a href="#"><img src="{% static 'website/images/italian.jpg' %}" alt=""></a>
+        <h2><a href="#">Menu of the day: Italian</a></h2>
+        <p>Lorem ipsum dolor sit amet, consectetuer adispiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. <a href="#" class="readmore">read more</a></p>
+      </li>
+      <li> <a href="#"><img src="{% static 'website/images/fruit.jpg' %}" alt=""></a>
+        <h2><a href="#">Fruit menu for your diet</a></h2>
+        <p>Lorem ipsum dolor sit amet, consectetuer adispiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. <a href="#" class="readmore">read more</a></p>
+      </li>
+      <li> <a href="#"><img src="images/{% static 'website/desserts.jpg' %}" alt=""></a>
+        <h2><a href="#">Desserts for every occassion</a></h2>
+        <p>Lorem ipsum dolor sit amet, consectetuer adispiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet. <a href="#" class="readmore">read more</a></p>
+      </li>-->
+    </ul>
+  </div>
+  <div id="navigation">
+    <div>
+      
+      <p><a href="#">Sobre nosotros</a> |  <a target="_blank" href="#">Desarroladores</a></p>
+      <p>Copyright &copy; 2022  Todos los derechos reservados | Damian Juarez / Elais Viegas </p>
+    </div>
+  </div>
+</div>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 </html>

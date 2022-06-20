@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+   {% block titulo %}
+   {% endblock %}      
+    </title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light "style="background-color: #41210a;">
+      
+      <a class="navbar-brand" href="#">
+      <img src="https://i.ibb.co/4ZtspXf/logo.jpg" width="70" height="70" alt=""opacity=10>
+      </a>
+      
+        <a class="btn btn-link" style="color: #DAF7A6 ;"href="/index/">Inicio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <!--<li class="nav-item active">
+              <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+            </li>-->
+            <li class="nav-item">
+              <a class="btn btn-link" style="color: #DAF7A6" href="/ServPet/">Solicitud de servicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" style="color: #DAF7A6" href="/menus/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                Menus
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/MenuPet/">Para Mascotas</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/MenuHum/">Para Humanos</a>
+              </div>
+            </li>
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" style="color: #DAF7A6" href="/MenuHum/create_human/">Nuevo producto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="color: #DAF7A6" href="/MenuPet/create_pet/">Nuevo producto de Mascotas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="color: #DAF7A6" href="/ServPet/list_serv/">Servicios solicitados</a>
+            </li>
+            {% endif %}
+            
+           
+
+            <!--<li class="nav-item">
+              <a class="nav-link disabled">Disabled</a>
+            </li>>>> -->
+          </ul>
+          {% block form %}
+          <!--<form class="form-inline my-2 my-lg-0" action="/MenuHum/search_product" method="GET">
+            <input class="form-control mr-sm-2" type="text" placeholder="Buscar" name= 'search' aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar Producto</button>
+          </form>-->
+          {% endblock %}
+          {% if request.user.is_authenticated %}
+            <li class="nav-item" style="margin-right: 10rem">
+                <h5>{{request.user.username}}</h5>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color: #DAF7A6" href="/logout/">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" style="color: #DAF7A6" href="/login/">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color: #DAF7A6" href="/register/">Registrate</a>
+            </li>
+            
+
+           {% endif %}
+          
+        </div>
+      </nav>
+    
+      {% block contenido %}
+      {% endblock %}      
+</body>
+
+<footer>
+<div class="container-fluid bg-light text-center p-3">
+  <p class="small">&copy; Todos los derechos reservados </p>
+</div>
+
+
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+</html>
