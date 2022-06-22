@@ -38,10 +38,14 @@
       <li><a href="/MenuHum/">Menu</a></li>
       <li><a href="/MenuPet/">Menu Pet</a></li>
       <li><a href="/servicios/">Servicios</a></li>
-     <!-- <li><a href="create_serv.html">Solicitar Servicio</a></li> -->
-     <!-- <li><a href="create_human.html">Editar Menu</a></li> -->
-     <!-- <li><a href="create_pet.html">Editar Menu Mascotas</a></li> -->
-     <!-- <li><a href="detail_products.html">Servicios solicitados</a></li> -->
+      {% if request.user.is_authenticated %}
+     <li><a href="create_serv.html">Solicitar Servicio</a></li>
+     {% endif %}
+     {% if request.user.is_authenticated and request.user.is_staff %}
+     <li><a href="create_human.html">Editar Menu</a></li> -->
+     <li><a href="create_pet.html">Editar Menu Mascotas</a></li>
+     <li><a href="detail_products.html">Servicios solicitados</a></li>
+     {% endif %}
     </ul>
   </div> 
 </div>
