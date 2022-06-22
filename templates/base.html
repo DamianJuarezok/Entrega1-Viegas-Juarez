@@ -14,10 +14,14 @@
 <div id="header">
   <div>
     <div>
-      <div id="logo"> <a href="#"><img src="{% static 'website/images/logo.png' %}" alt=""></a> </div>
+      <div id="logo"> <a href="#"><img src="{% static 'website/images/logo.png' %}" alt=""></a> 
+      </div>
       <div>
         <div> {% if request.user.is_authenticated %}
           <h5>{{request.user.username}}</h5>
+          <li class="nav-item">
+              <img src="{{request.user.perfil.imagen.url}}" style="height:2rem;">
+          </li>
           <a href="/logout/">Logout</a> 
           {% else %}
           <a href="/register/">Registrarse</a> <a href="/login/" class="last">Login</a>
@@ -39,11 +43,10 @@
       <li><a href="/ServPet/">Servicios</a></li>
       <li><a href="contact.html">Contacto</a></li>
     </ul>
-    
-      
-       
   </div> 
 </div>
+
+
 {% block contenido %}
 <div id="content">
   <div class="home">
@@ -58,10 +61,10 @@
         <h2>The food story</h2>
         <p>Lorem ipsum dolor sit amet, consectetuer adispiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exercitation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
       </div>
-      <ul>
+        <ul>
         <li> <a href="#"><img src="{% static 'website/images/burgercake.jpg' %}" alt=""></a> </li>
         <li> <a href="#"><img src="{% static 'website/images/cupcake.jpg' %}" alt=""></a> </li>
-      </ul>
+        </ul>
     </div>
   </div>
 </div>

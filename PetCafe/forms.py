@@ -7,10 +7,10 @@ class User_registration_form(UserCreationForm):
     email = forms.EmailField()
     password1 = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Repita su contraseña', widget=forms.PasswordInput)
-    first_name = forms.CharField()
-    last_name = forms.CharField()
+    nombre = forms.CharField()
+    apellido = forms.CharField()
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1', 'password2', 'first_name','last_name']
+        fields = ['username', 'email', 'password1', 'password2', 'nombre','apellido']
         help_texts = {k:'' for k in fields}
