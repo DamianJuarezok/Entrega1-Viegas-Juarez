@@ -10,8 +10,11 @@ from PetCafe.forms import User_registration_form
 def index(request):
     return render(request, 'index.html')
 
-def menus(request):
-    return render(request, 'menus.html')
+def about(request):
+    return render(request, 'about.html')
+
+def servicios(request):
+    return render(request, 'servicios.html')
 
 def login_view(request):
     if request.method == "POST":
