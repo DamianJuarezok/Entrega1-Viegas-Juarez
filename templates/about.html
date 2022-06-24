@@ -9,14 +9,19 @@
  {% endblock %}
 
  {% block contenido %}
- <h2>El menu para usted:</h2>
+ <h1>Un poco sobre nosotros</h1>
 
  {{message}}
  <div id="content">
     <div>
-      <h1>The Pastry shop</h1>
+      <h2>Te contamos un poco del origen de la página</h2>
+      <h4>Esta página fue desarrollada por dos personas. Es el fruto de lo aprendido luego de realizar el curso
+        de Coderhouse sobre el lenguaje de programación Python y su framework Django.</h4>
+      <h5>Damián Juarez 
+        Elais Viegas es técnica química y actualmente trabaja en un laboratorio. Viene estudiando y interesándose en la 
+        programación hace 9 meses, ahora ampliando conocimientos hacia el desarrollo web.
+      </h5>
       <ul>
-
         {% for product in object_list %}
         <li>
           <div>

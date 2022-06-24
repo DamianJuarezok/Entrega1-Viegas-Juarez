@@ -2,19 +2,19 @@
 {% load static %}
 
 {% block titulo %}
-    Menu
+    Menú para mascotas
 {% endblock %}
 {% block form %}
     
  {% endblock %}
 
  {% block contenido %}
- <h2>El menu para usted:</h2>
+ <h1>El menu para usted:</h1>
 
  {{message}}
  <div id="content">
     <div>
-      <h1>The Pastry shop</h1>
+      <h2>Aprovechá los descuentos en productos seleccionados</h2>
       <ul>
 
         {% for product in object_list %}
