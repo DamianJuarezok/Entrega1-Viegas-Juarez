@@ -7,4 +7,4 @@ class Menu_Hum(models.Model):
     precio = models.FloatField()
     detalle = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True)
-    #imagen = models.ImageField(upload_to="producto", null=True)
+    image = models.ImageField(upload_to = 'products', blank=True, null=True)

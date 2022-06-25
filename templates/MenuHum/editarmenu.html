@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+    Menú 
+{% endblock %}
+{% block form %}
+    
+ {% endblock %}
+
+ {% block contenido %}
+  
+ {{message}}
+ <div id="content">
+    <div>
+      <h2>Edicion de Menu:</h2>
+     <p> <a class="editar" href="/MenuHum/create_human/">Agregar producto</a>
+      
+      <ul>
+
+        {% for product in object_list %}
+        <li>
+          <div>
+            <div>
+              <p><a class="editar" href="/MenuHum/update-product/{{product.id}}/">Editar</a>
+                <a class="editar" href="/MenuHum/delete-product/{{product.id}}/">Eliminar</a></p>
+              <h2><a>{{product.producto}}</a></h2>
+              <p>{{product.detalle}}</p>
+              <b><a class="view">${{product.precio}}</a></b> </div>
+              {% if product.is_active %}
+        <a>El producto <b>SI</b> esta en la lista</a>
+        {% else %}
+        <a>El producto <b>NO</b> esta en la lista</a>
+        {% endif %}
+                      
+              <a><img src="{% static 'website/images/healthy-food.jpg' %}" alt=""></a>
+                          
+        </li>
+        {% if product.image %}
+        <p><img src="{{product.image.url}}" width="220" height="220" alt=""></p>
+        {% endif %}
+        
+
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  
+{% endblock %}

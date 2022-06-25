@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="icon" href="{% static 'website/images/favicon.png' %}">
 <title>{% block titulo %}
   {% endblock %}  </title>
 <meta charset="UTF-8">
@@ -42,7 +43,7 @@
      <li><a href="create_serv.html">Solicitar Servicio</a></li>
      {% endif %}
      {% if request.user.is_authenticated and request.user.is_staff %}
-     <li><a href="create_human.html">Editar Menu</a></li> -->
+     <li><a href="/MenuHum/editar_human/">Editar Menu</a></li>
      <li><a href="create_pet.html">Editar Menu Mascotas</a></li>
      <li><a href="detail_products.html">Servicios solicitados</a></li>
      {% endif %}
@@ -124,7 +125,7 @@
   <div id="navigation">
     <div>
       
-      <p><a href="/about/">Sobre nosotros</a> |  <a target="_blank" href="#">Desarroladores</a></p>
+      <p><a>Sobre nosotros:</a> <a target="_blank" href="/about/">Desarroladores</a></p>
       <p>Copyright &copy; 2022  Todos los derechos reservados | Damian Juarez / Elais Viegas </p>
     </div>
   </div>

@@ -12,6 +12,13 @@ from django.views.generic import ListView, DetailView, CreateView, DeleteView, U
 #    prodhum = Menu_Hum.objects.all()
 #    context = {'prodhum':prodhum}
 #    return render(request, 'menuhum.html', context=context)
+class Edit_productsH(ListView):
+    model = Menu_Hum
+    template_name= 'MenuHum/editarmenu.html'
+    
+    def get_success_url(self):
+        return reverse('detail_product', kwargs={'pk':self.object.pk})
+    
 
 class List_productsH(ListView):
     model = Menu_Hum

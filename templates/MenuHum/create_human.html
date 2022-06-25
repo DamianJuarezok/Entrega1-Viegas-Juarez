@@ -1,50 +1,39 @@
 {% extends 'base.html' %}
+{% load static %}
 
 
 {% block titulo %}
-    Nuevo producto
+    Editar menu
 {% endblock %}
 
 {% block form %}
-    <form class="form-inline my-2 my-lg-0" action="/MenuHum/search_product" method="GET">
-      <input class="form-control mr-sm-2" type="text" placeholder="Menu para usted" name= 'search' aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-    </form>
+    <!--<form action="/MenuHum/search_product" method="GET">
+      <input type="text" placeholder="Buscar" name= 'search' aria-label="Search">
+      <input type="submit" value="" id="searchbtn">
+    </form>-->
+
+    <form action="#">
+        <input type="text" id="search" maxlength="30">
+        <input type="submit" value="" id="searchbtn">
+      </form>
+
  {% endblock %}
  
 {% block contenido %} 
 
 {% if form %}
-
-<h2>Complete los campos del nuevo producto</h2>
-        <form action="" method="POST">
+<div id="content">
+    <div id="account">
+        <h2 style="margin-left:auto;margin-right:auto;margin-top:0rem">Complete los campos del nuevo producto</h2>
+        <form action="" method="POST" enctype="multipart/form-data"style="margin-left:auto;margin-right:auto;margin-top:0rem">
             {% csrf_token %}
             <table>
                 {{form.as_table}}
             </table>
-            <input type="submit" , value="Enviar">
+            <input type="submit" , value="Enviar" class="submitbtn">
         </form>
-    
-    <!-- <h2>Agregue un nuevo producto:</h2>
-
-    <form action="" method="POST" >
-        {% csrf_token %}
-        <table>
-            {{form.as_table}}
-        </table>
-        <input type="submit", value="Enviar!">
-    </form>
-{% elif new_product %}
-
-    <h2 style="margin-left:30rem">Complete los campos del nuevo producto</h2>
-        <form action="" method="POST" style="margin-left:40rem;margin-top:7rem">
-            {% csrf_token %}
-            <table>
-                {{form.as_table}}
-            </table>
-            <input type="submit" , value="Enviar">
-        </form>
-    -->
+    </div>
+</div>
 
 {% endif %}
 

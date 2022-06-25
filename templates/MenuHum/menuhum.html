@@ -15,19 +15,26 @@
  <div id="content">
     <div>
       <h2>No te quedes sin probar nuestro café</h2>
+    
+      
       <ul>
 
         {% for product in object_list %}
         <li>
           <div>
             <div>
-              <h2><a href="#">{{product.producto}}</a></h2>
+              
+              <h2><a>{{product.producto}}</a></h2>
               <p>{{product.detalle}}</p>
-              <b><a href="#" class="view">${{product.precio}}</a></b> </div>
-            <a href="#"><img src="{% static 'website/images/healthy-food.jpg' %}" alt=""></a>
+              <b><a class="view">${{product.precio}}</a></b> </div>        
+              {% if request.user.is_authenticated and request.user.is_staff %}
             
+            {% endif %}
+            <a><img src="{% static 'website/images/healthy-food.jpg' %}" alt=""></a>            
         </li>
-        <a href="#"><img src="{% static 'website/images/special-treats.jpg' %}" alt=""></a>
+        {% if product.image %}
+        <p><img src="{{product.image.url}}" width="220" height="220" alt=""></p>
+        {% endif %}
         {% endfor %}
       </ul>
     </div>

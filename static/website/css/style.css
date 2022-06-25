@@ -70,15 +70,15 @@ p a {
 	width: 290px;
 }
 #header div div div form input {
-	float: left;
-	line-height: 30px;
+	float: right;
+	line-height: 0px;
 }
 #header div div div form input#search {
 	background: url(../images/input-search.gif) no-repeat 0 0;
-	border: 0;
+	border: 0px;
 	height: 30px;
 	padding: 0 5px;
-	width: 220px;
+	width: 180px;
 }
 #header div div div form input#searchbtn {
 	background: url(../images/sprite-buttons.gif) no-repeat 0 -291px;
@@ -325,6 +325,40 @@ p a {
 	margin-top: 0;
 	text-align: justify;
 }
+#content div a.editar {
+	border: 1px solid #84284d; /*anchura, estilo y color borde*/
+	padding: 10px; /*espacio alrededor texto*/
+	background-color: #84284d; /*color botón*/
+	color: #ffffff; /*color texto*/
+	text-decoration: none; /*decoración texto*/
+	text-transform: uppercase; /*capitalización texto*/
+	font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+	border-radius: 50px; /*bordes redondos*/
+	}
+#content div button.borrar {
+	border: 1px solid #d61a1a; /*anchura, estilo y color borde*/
+	padding: 10px; /*espacio alrededor texto*/
+	background-color: #d61a1a; /*color botón*/
+	color: #ffffff; /*color texto*/
+	text-decoration: none; /*decoración texto*/
+	text-transform: uppercase; /*capitalización texto*/
+	font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+	border-radius: 50px; /*bordes redondos*/
+	transition-duration: 0.4s;
+	cursor: pointer;
+	}
+#content div button:hover.borrar {
+		border: 1px solid #84284d; /*anchura, estilo y color borde*/
+		padding: 10px; /*espacio alrededor texto*/
+		background-color: #84284d; /*color botón*/
+		color: #ffffff; /*color texto*/
+		text-decoration: none; /*decoración texto*/
+		text-transform: uppercase; /*capitalización texto*/
+		font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+		border-radius: 50px; /*bordes redondos*/
+		transition-duration: 0.4s;
+		cursor: pointer;
+		}
 #content div h1 {
 	color: #84284d;
 	font-family: Trebuchet MS;
