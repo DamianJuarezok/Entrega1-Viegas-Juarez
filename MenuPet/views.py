@@ -9,6 +9,15 @@ from MenuPet.models import Menu_Pet
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 # Create your views here.
 
+class Edit_productsM(ListView):
+    model = Menu_Pet
+    template_name= 'MenuPet/editarmenu.html'
+    
+    def get_success_url(self):
+        return reverse('detail-product', kwargs={'pk':self.object.pk})
+    
+
+
 class List_productsM(ListView):
     model = Menu_Pet
     template_name= 'MenuPet/menumasc.html'

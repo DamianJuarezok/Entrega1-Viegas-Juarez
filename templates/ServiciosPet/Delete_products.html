@@ -1,18 +1,25 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block titulo %}
     Eliminar servicio
 {% endblock %}
+{% block form %}
 
+ {% endblock %}
 {% block contenido %}
-
-
-    <h3 style="color: red">Estas por eliminar el servicio {{object.producto}}, estas seguro?</h3>
+<div id="content">
+    <div>
+      
+    <h3 style="color: red">Estas por eliminar el producto {{object.producto}}, estas seguro?</h3>
 
     <form method = "POST">
         {% csrf_token %}
-        <button class="btn btn-danger" type="submit">Eliminar</button>
+        <button class="borrar" type="submit">Eliminar</button>
+        <a class="editar" href="/ServPet/list_serv/">Volver</a>
+     
     </form>
-
+    </div>
+</div>
 
 {% endblock %}

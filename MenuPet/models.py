@@ -8,3 +8,4 @@ class Menu_Pet(models.Model):
     precio = models.FloatField()
     detalle = models.CharField(max_length=100)
     is_active = models.BooleanField(default=True)
+    image = models.ImageField(upload_to = 'products', blank=True, null=True)

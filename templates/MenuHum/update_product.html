@@ -6,11 +6,10 @@ Actualizar productos
 {% endblock %}
 
 {% block form %}
-    <!--<form action="/MenuHum/search_product" method="GET">
-      <input type="text" placeholder="Buscar" name= 'search' aria-label="Search">
-      <input type="submit" value="" id="searchbtn">
-    </form>-->
-
+<form action="/MenuHum/search_product" method="GET">
+    <input type="text" placeholder="Menu para usted" name= 'search' aria-label="Search" id="search">
+    <button id="searchbtn" type="submit">Buscar</button>
+  </form>
  {% endblock %}
 
 {% block contenido %}

@@ -1,33 +1,41 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block titulo %}
 Resultado de busqueda
 {% endblock %}
 {% block form %}
-    <form class="form-inline my-2 my-lg-0" action="/MenuPet/search_product" method="GET">
-      <input class="form-control mr-sm-2" type="text" placeholder="Menu para ellos" name= 'search' aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-    </form>
+<form action="/MenuPet/search_product" method="GET">
+    <input type="text" placeholder="Menu para ellos" name= 'search' aria-label="Search" id="search">
+    <button id="searchbtn" type="submit">Buscar</button>
+  </form>
  {% endblock %}
 {% block contenido %}
-<h2>El menu para ellos:</h2>
-<div class="d-flex" style="margin-top:5rem; margin-left:7rem">
-    {% for MenuMasc in products %}
-
-    <div class="card" style="width: 18rem;">
-        <!--<img src="images/pie.jpg" class="card-img-top" alt="...">-->
-        <div class="card-body">
-            <h5 class="card-title">{{MenuMasc.producto}}</h5>
-            <p class="card-text">{{MenuMasc.detalle}}</p>
-            <p class="card-text">{{MenuMasc.precio}}</p>
-            <a href="#" class="btn btn-primary">Comprar!</a>
-        </div>
-    </div>
-
-    {% endfor %}
-</div>
-<h2><div style="color:red">
-    {{errors}}
-    </div></h2>
-
+<div id="content">
+    <div>
+      <h1>Resultado de busqueda:</h1>
+        <ul>
+ 
+     {% for MenuMasc in products %}
+     <p><li>
+         <div>
+           <div>
+             
+             <h2><a>{{MenuMasc.producto}}</a></h2>
+             <p>{{MenuMasc.detalle}}</p>
+             <b><a class="view">${{MenuMasc.precio}}</a></b> </div>        
+            
+           <a><img src="{% static 'website/images/healthy-food.jpg' %}" alt=""></a>            
+       </li>
+       {% if MenuMasc.image %}
+       <p><img src="{{MenuMasc.image.url}}" width="220" height="220" alt=""></p>
+       {% endif %}</p>
+       {% endfor %}
+       <h2><div style="color:red">
+         {{errors}}
+         </div></h2>
+     </ul>
+   </div>
+ </div>
+ </div>
 {% endblock %}

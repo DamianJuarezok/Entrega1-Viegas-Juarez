@@ -5,11 +5,10 @@
     Menú 
 {% endblock %}
 {% block form %}
-<form action="/MenuHum/search_product" method="GET">
+<form action="/MenuPet/search_product" method="GET">
   <input type="text" placeholder="Menu para usted" name= 'search' aria-label="Search" id="search">
   <button id="searchbtn" type="submit">Buscar</button>
-</form>
-    
+</form>     
  {% endblock %}
 
  {% block contenido %}
@@ -18,7 +17,7 @@
  <div id="content">
     <div>
       <h2>Edicion de Menu:</h2>
-     <p> <a class="editar" href="/MenuHum/create_human/">Agregar producto</a>
+     <p> <a class="editar" href="/MenuPet/create_pet/">Agregar producto</a>
       
       <ul>
 
@@ -26,8 +25,8 @@
         <li>
           <div>
             <div>
-              <p><a class="editar" href="/MenuHum/update-product/{{product.id}}/">Editar</a>
-                <a class="editar" href="/MenuHum/delete-product/{{product.id}}/">Eliminar</a></p>
+              <p><a class="editar" href="/MenuPet/update-product/{{product.id}}/">Editar</a>
+                <a class="editar" href="/MenuPet/delete-product/{{product.id}}/">Eliminar</a></p>
               <h2><a>{{product.producto}}</a></h2>
               <p>{{product.detalle}}</p>
               <b><a class="view">${{product.precio}}</a></b> </div>

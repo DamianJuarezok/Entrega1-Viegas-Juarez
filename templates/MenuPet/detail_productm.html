@@ -1,23 +1,40 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block titulo %}
     Detalle de producto
 {% endblock %}
-
+{% block form %}
+<form action="/MenuPet/search_product" method="GET">
+  <input type="text" placeholder="Menu para usted" name= 'search' aria-label="Search" id="search">
+  <button id="searchbtn" type="submit">Buscar</button>
+</form>    
+ {% endblock %}
 {% block contenido %}
-<h1 style="margin-left:30rem">Aca va el contenido de detalles de productos</h1>
-<div class="d-flex" style="margin-top:5rem; margin-left:7rem">
-
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">{{object.producto}}</h5>
-            <p class="card-text">{{object.precio}}</p>
-            <p class="card-text">{{object.detalle}}</p>
-            <a href="/MenuPet/update-product/{{object.id}}/" class="btn btn-primary">Editar</a>
-            <a href="/MenuPet/delete-product/{{object.id}}/" class="btn btn-danger">Eliminar</a>
-        </div>
-    </div>
-
-</div>
-
+{{message}}
+<div id="content">
+   <div>
+     <h2>Edicion de Menu:</h2>
+    <p> <a class="editar" href="/MenuPet/create_pet/">Agregar producto</a>
+     <a class="editar" href="/MenuPet/editar_pet/">Volver</a>
+     
+     <ul>
+       <li>
+         <div>
+           <div>
+             <p><a class="editar" href="/MenuPet/update-product/{{object.id}}/">Editar</a>
+               <a class="editar" href="/MenuPet/delete-product/{{object.id}}/">Eliminar</a></p>
+             <h2><a>{{object.producto}}</a></h2>
+             <p>{{object.detalle}}</p>
+             <b><a class="view">${{object.precio}}</a></b> </div>        
+                      
+            <a><img src="{% static 'website/images/healthy-food.jpg' %}" alt=""></a>            
+       </li>
+       {% if object.image %}
+       <p><img src="{{object.image.url}}" width="220" height="220" alt=""></p>
+       {% endif %}
+       
+     </ul>
+   </div>
+ </div>
 {% endblock %}

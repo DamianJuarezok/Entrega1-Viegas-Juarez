@@ -5,36 +5,36 @@
     Menú 
 {% endblock %}
 {% block form %}
-    
+<form action="/MenuHum/search_product" method="GET">
+  <input type="text" placeholder="Menu para usted" name= 'search' aria-label="Search" id="search">
+  <button id="searchbtn" type="submit">Buscar</button>
+</form>
  {% endblock %}
 
  {% block contenido %}
- <h1>El menu para usted:</h1>
-
- {{message}}
+  {{message}}
  <div id="content">
     <div>
-      <h2>No te quedes sin probar nuestro café</h2>
+      <h1>Mira nuestra carta:</h1>
+      <h3>(No te quedes sin probar nuestro café)</h3>
     
       
       <ul>
 
         {% for product in object_list %}
-        <li>
+        <p><li>
           <div>
             <div>
               
               <h2><a>{{product.producto}}</a></h2>
               <p>{{product.detalle}}</p>
               <b><a class="view">${{product.precio}}</a></b> </div>        
-              {% if request.user.is_authenticated and request.user.is_staff %}
-            
-            {% endif %}
+             
             <a><img src="{% static 'website/images/healthy-food.jpg' %}" alt=""></a>            
         </li>
         {% if product.image %}
         <p><img src="{{product.image.url}}" width="220" height="220" alt=""></p>
-        {% endif %}
+        {% endif %}</p>
         {% endfor %}
       </ul>
     </div>

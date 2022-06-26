@@ -40,12 +40,12 @@
       <li><a href="/MenuPet/">Menu Pet</a></li>
       <li><a href="/servicios/">Servicios</a></li>
       {% if request.user.is_authenticated %}
-     <li><a href="create_serv.html">Solicitar Servicio</a></li>
+     <li><a href="/ServPet/">Solicitar Servicio</a></li>
      {% endif %}
      {% if request.user.is_authenticated and request.user.is_staff %}
      <li><a href="/MenuHum/editar_human/">Editar Menu</a></li>
-     <li><a href="create_pet.html">Editar Menu Mascotas</a></li>
-     <li><a href="detail_products.html">Servicios solicitados</a></li>
+     <li><a href="/MenuPet/editar_pet/">Editar Menu Mascotas</a></li>
+     <li><a href="/ServPet/list_serv/">Servicios solicitados</a></li>
      {% endif %}
     </ul>
   </div> 
@@ -79,14 +79,14 @@
     <div>
       <div class="aside">
         <div class="signup">
-          <div> <b> <span>Solicita tu servicio</span></b> <a href="/ServPet/">Escribinos</a>
+          <div> <b> <span>Solicita tu servicio</span></b> <a href="/register/">Escribinos</a>
             <p>Te esteremos contactando</p>
           </div>
         </div>
         <div class="connect"> <span>Seguinos en redes</span>
           <ul>
-            <li><a href="#" class="facebook">Facebook</a></li>
-            <li><a href="#" class="twitter">Instagram</a></li>
+            <li><a href="https://www.facebook.com/Pet-Cafe-105550645543750" class="facebook">Facebook</a></li>
+            <li><a href="https://www.instagram.com/pet_cafe_ok/" class="twitter">Instagram</a></li>
           </ul>
         </div>
       </div>

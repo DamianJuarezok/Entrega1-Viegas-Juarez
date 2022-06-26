@@ -11,7 +11,7 @@ class List_productsS(ListView):
     
     model = Servicio
     template_name= 'ServiciosPet/solserv.html'
-    queryset = Servicio.objects.filter(is_active = True)
+    
     
 class Detail_productS(DetailView):
     model = Servicio
@@ -20,7 +20,7 @@ class Detail_productS(DetailView):
 class Create_productS(CreateView):
     model = Servicio
     template_name = 'ServiciosPet/create_serv.html'
-    fields = '__all__'
+    fields = ['nombre_apellido', 'telefono', 'email', 'nombre_mascota', 'raza', 'edad', 'Servicios']
 
     def get_success_url(self):
         return reverse('detail_products', kwargs={'pk':self.object.pk})

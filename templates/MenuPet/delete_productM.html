@@ -1,18 +1,27 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block titulo %}
     Borrar producto
 {% endblock %}
-
+{% block form %}
+<form action="/MenuPet/search_product" method="GET">
+  <input type="text" placeholder="Menu para usted" name= 'search' aria-label="Search" id="search">
+  <button id="searchbtn" type="submit">Buscar</button>
+</form>    
+ {% endblock %}
 {% block contenido %}
-
-
+<div id="content">
+    <div>
+      
     <h3 style="color: red">Estas por eliminar el producto {{object.producto}}, estas seguro?</h3>
 
     <form method = "POST">
         {% csrf_token %}
-        <button class="btn btn-danger" type="submit">Eliminar</button>
+        <button class="borrar" type="submit">Eliminar</button>
+        <a class="editar" href="/MenuPet/editar_pet/">Volver</a>
+     
     </form>
-
-
+    </div>
+</div>
 {% endblock %}

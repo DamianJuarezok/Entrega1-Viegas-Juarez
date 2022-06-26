@@ -1,26 +1,46 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block titulo %}
-    Detalle de producto
+    Detalle de Servicio
 {% endblock %}
+{% block form %}
 
+ {% endblock %}
 {% block contenido %}
-<h2 >Servicio solicitado correctamente!!</h2>
-<div class="d-flex">
+{{message}}
+<div id="content">
+   <div>
+     <h2>Muchas gracias por tu solicitud!</h2>
+     <h4>Pronto nos estaremos contactando</h4>
+    
+     
+     
+     <ul>
+      <p>Nombre y Apellido: {{object.nombre_apellido}}</p>
+      <p>Telefono: {{object.telefono}}</p>
+      <p>Correo: {{object.email}}</p>
+      <p>Nombre de mascota: {{object.nombre_mascota}}</p>
+      <p>Raza: {{object.raza}}</p>
+      <p>Edad: {{object.edad}}</p>
+      <p>Servicio solicitado: 
+        {% if object.Servicios == 1 %}
+        Baño
+        {% elif object.Servicios == 2 %}
+        Peluqueria
+        {% elif object.Servicios == 3 %}
+        Corte de uñas y limpeza de orejas
+        {% else %}
+        Otro
+        {% endif %}
 
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">{{object.nombre_apellido}}</h5>
-            <p class="card-text">{{object.telefono}}</p>
-            <p class="card-text">{{object.email}}</p>
-            <p class="card-text">{{object.nombre_mascota}}</p>
-            <p class="card-text">{{object.raza}}</p>
-            <p class="card-text">{{object.edad}}</p>
-            <!--<a href="/ServPet/update-product/{{object.id}}/" class="btn btn-primary">Editar</a>
-            <a href="/ServPet/delete-product/{{object.id}}/" class="btn btn-danger">Eliminar</a>-->
-        </div>
-    </div>
-
-</div>
-
+       </p>     
+       <p><a class="editar" href="/">Volver</a>
+      <!-- <a class="editar" href="/ServPet/update-product/{{product.id}}/">Editar</a>
+       <a class="editar" href="/ServPet/delete-product/{{product.id}}/">Eliminar</a></p>-->
+             
+     </ul>
+   </div>
+ </div>
 {% endblock %}
+

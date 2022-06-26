@@ -10,3 +10,10 @@ class Servicio(models.Model):
     raza = models.CharField(max_length=15)
     edad = models.IntegerField()
     is_active = models.BooleanField(default=True)
+    class servicio(models.IntegerChoices):
+        Baño = 1
+        Peluqueria = 2
+        Uñas_y_orejas = 3
+        Otro = 4
+
+    Servicios = models.IntegerField(choices=servicio.choices)

@@ -63,7 +63,7 @@ p a {
 	padding-right: 0;
 }
 #header div div div form {
-	position: absolute;
+	/*position: absolute;*/
 	right: 0;
 	top: 70px;
 	height: 30px;
@@ -78,13 +78,18 @@ p a {
 	border: 0px;
 	height: 30px;
 	padding: 0 5px;
-	width: 180px;
+	width: 220px;
+	
 }
-#header div div div form input#searchbtn {
-	background: url(../images/sprite-buttons.gif) no-repeat 0 -291px;
-	border: none;
+#header div div div form button#searchbtn {
 	height: 30px;
 	width: 60px;
+	border: 1px solid #84284d; /*anchura, estilo y color borde*/
+	padding: 0px; /*espacio alrededor texto*/
+	background-color: #84284d; /*color botón*/
+	color: #ffffff; /*color texto*/
+	text-decoration: none; /*decoración texto*/
+	cursor: pointer;
 }
 #header div ul {
 	list-style: none;
@@ -858,12 +863,12 @@ p a {
 	width: 240px;
 }
 #footer div.home div div.aside div.signup div a, #footer div.section div div.aside div div a {
-	background: url(../images/sprite-buttons.gif) no-repeat 0 -331px;
+	background: url(../images/sprite-buttons.gif) no-repeat 0 -335px;
 	color: #84284D;
 	display: block;
-	height: 35px;
+	height: 25px;
 	text-indent: -999999px;
-	width: 230px;
+	width: 220px;
 }
 #footer div.home div div.aside div.signup div b, #footer div.section div div.aside div div b {
 	color: #674253;

@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+    Servicios solicitados
+{% endblock %}
+{% block form %}
+
+ {% endblock %}
+
+ {% block contenido %}
+ {{message}}
+ <div id="content">
+    <div>
+      <h1>Servicios solicitados:</h1>
+      
+      
+
+        {% for product in object_list %}
+        
+          
+              
+        <hr width=1000>
+              <p>Nombre y Apellido: {{product.nombre_apellido}}</p>
+              <p>Telefono: {{product.telefono}}</p>
+              <p>Correo: {{product.email}}</p>
+              <p>Nombre de mascota: {{product.nombre_mascota}}</p>
+              <p>Raza: {{product.raza}}</p>
+              <p>Edad: {{product.edad}}</p>
+              <p>Servicio solicitado: 
+                {% if product.Servicios == 1 %}
+                Baño
+                {% elif product.Servicios == 2 %}
+                Peluqueria
+                {% elif product.Servicios == 3 %}
+                Corte de uñas y limpeza de orejas
+                {% else %}
+                Otro
+                {% endif %}
+
+               </p>     
+               <p><a class="editar" href="/ServPet/update-product/{{product.id}}/">Editar</a>
+                <a class="editar" href="/ServPet/delete-product/{{product.id}}/">Eliminar</a></p>
+                     
+            
+    
+        {% endfor %}
+      
+    </div>
+  </div>
+  {% endblock %}

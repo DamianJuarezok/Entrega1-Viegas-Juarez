@@ -5,16 +5,19 @@ Editar Servicio
 {% endblock %}
 
 {% block contenido %}
-
-    {% if form %}
-        <h2 style="margin-left:30rem">Complete los campos a actualizar</h2>
-        <form action="" method="POST" style="margin-left:40rem;margin-top:7rem">
+{% if form %}
+<div id="content">
+    <div id="account">
+        <h2 style="margin-left:auto;margin-right:auto;margin-top:0rem">Complete los campos a actualizar</h2>
+        <form action="" method="POST" enctype="multipart/form-data" style="margin-left:auto;margin-right:auto;margin-top:0rem">
             {% csrf_token %}
             <table>
                 {{form.as_table}}
             </table>
-            <input type="submit" , value="Enviar">
+            <input type="submit" , value="Enviar" class="submitbtn">
         </form>
+    </div>
+</div>
     {% endif %}
 
 {% endblock %}

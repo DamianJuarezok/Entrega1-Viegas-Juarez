@@ -5,29 +5,34 @@
     Menú para mascotas
 {% endblock %}
 {% block form %}
-    
+<form action="/MenuPet/search_product" method="GET">
+  <input type="text" placeholder="Menu para ellos" name= 'search' aria-label="Search" id="search">
+  <button id="searchbtn" type="submit">Buscar</button>
+</form>    
  {% endblock %}
 
  {% block contenido %}
- <h1>El menu para usted:</h1>
-
+ 
  {{message}}
  <div id="content">
     <div>
-      <h2>Aprovechá los descuentos en productos seleccionados</h2>
+      <h1>Nuestro Menu para mascotas:</h1>
+      <h3>(Aprovechá los descuentos en productos seleccionados)</h3>
       <ul>
 
         {% for product in object_list %}
-        <li>
+        <p><li>
           <div>
             <div>
-              <h2><a href="#">{{product.producto}}</a></h2>
+              <h2><a>{{product.producto}}</a></h2>
               <p>{{product.detalle}}</p>
-              <b><a href="#" class="view">${{product.precio}}</a></b> </div>
-            <a href="#"><img src="{% static 'website/images/gif1.gif' %}" alt=""></a>
+              <b><a class="view">${{product.precio}}</a></b> </div>
+            <a><img src="{% static 'website/images/healthy-food.jpg' %}" alt=""></a>
             
         </li>
-        <a href="#"><img src="{% static 'website/images/special-treats.jpg' %}" alt=""></a>
+        {% if product.image %}
+        <a><img src="{{product.image.url}}" width="220" height="220" alt=""></a>
+        {% endif %}</p>
         {% endfor %}
       </ul>
     </div>
