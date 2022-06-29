@@ -27,7 +27,7 @@ class Create_productS(CreateView):
 
 class Delete_productS(DeleteView):
     model = Servicio
-    template_name = 'ServiciosPet/delete_products.html'
+    template_name = 'ServiciosPet/delete_productS.html'
 
     def get_success_url(self):
         return reverse('Servicios')
