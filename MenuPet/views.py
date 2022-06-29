@@ -37,7 +37,7 @@ class Create_productM(CreateView):
 
 class Delete_productM(DeleteView):
     model = Menu_Pet
-    template_name = 'MenuPet/delete_productm.html'
+    template_name = 'MenuPet/delete_productM.html'
 
     def get_success_url(self):
         return reverse('MenuPet')
