@@ -37,14 +37,14 @@ class Create_productM(CreateView):
 
 class Delete_productM(DeleteView):
     model = Menu_Pet
-    template_name = 'MenuPet/Delete_productm.html'
+    template_name = 'MenuPet/delete_productm.html'
 
     def get_success_url(self):
         return reverse('MenuPet')
 
 class Update_productM(UpdateView):
     model = Menu_Pet
-    template_name = 'MenuPet/update_productm.html'
+    template_name = 'MenuPet/update_productM.html'
     fields = '__all__'
 
 
@@ -66,4 +66,4 @@ def search_product_view(request):
         context = {'products':products}
     else:
         context = {'errors':f'Disculpe no se encontro ningun producto con el nombre: {palabra_busqueda}'}
-    return render(request, 'search_productP.html', context = context)
+    return render(request, 'search_productp.html', context = context)
