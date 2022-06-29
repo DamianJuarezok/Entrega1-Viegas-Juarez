@@ -27,7 +27,7 @@ class List_productsH(ListView):
 
 class Detail_productH(DetailView):
     model = Menu_Hum
-    template_name= 'MenuHum/detail_productH.html'
+    template_name= 'MenuHum/detail_producth.html'
 
 class Create_productH(CreateView):
     model = Menu_Hum
@@ -40,7 +40,7 @@ class Create_productH(CreateView):
 
 class Delete_productH(DeleteView):
     model = Menu_Hum
-    template_name = 'MenuHum/Delete_product.html'
+    template_name = 'MenuHum/delete_product.html'
 
     def get_success_url(self):
         return reverse('MenuHum')
@@ -82,5 +82,5 @@ def search_product_view(request):
         context = {'products':products}
     else:
         context = {'errors':f'Disculpe no se encontro ningun producto con el nombre: {palabra_busqueda}'}
-    return render(request, 'search_productH.html', context = context)
+    return render(request, 'search_producth.html', context = context)
     #return render(request, 'search_productH.html')
