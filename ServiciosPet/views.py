@@ -15,7 +15,7 @@ class List_productsS(ListView):
     
 class Detail_productS(DetailView):
     model = Servicio
-    template_name= 'ServiciosPet/detail_productS.html'
+    template_name= 'ServiciosPet/detail_products.html'
 
 class Create_productS(CreateView):
     model = Servicio
@@ -27,14 +27,14 @@ class Create_productS(CreateView):
 
 class Delete_productS(DeleteView):
     model = Servicio
-    template_name = 'ServiciosPet/Delete_productS.html'
+    template_name = 'ServiciosPet/delete_products.html'
 
     def get_success_url(self):
         return reverse('Servicios')
 
 class Update_productS(UpdateView):
     model = Servicio
-    template_name = 'ServiciosPet/update_productS.html'
+    template_name = 'ServiciosPet/update_products.html'
     fields = '__all__'
 
 
@@ -56,5 +56,5 @@ def search_product_view(request):
         context = {'products':products}
     else:
         context = {'errors':f'Disculpe no se encontro ningun servicio con el propietario: {palabra_busqueda}'}
-    return render(request, 'search_productS.html', context = context)
+    return render(request, 'search_products.html', context = context)
     
