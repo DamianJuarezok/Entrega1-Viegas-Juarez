@@ -66,4 +66,4 @@ def search_product_view(request):
         context = {'products':products}
     else:
         context = {'errors':f'Disculpe no se encontro ningun producto con el nombre: {palabra_busqueda}'}
-    return render(request, 'search_productp.html', context = context)
+    return render(request, 'search_productP.html', context = context)
